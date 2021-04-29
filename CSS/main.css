@@ -20,3 +20,16 @@ body{
     background-color: var(--silver);
     font-family: cosmith-sans;
 }
+
+.is-hidden{
+    display: none;
+}
+.is-visible{
+    width: 100%; 
+    display: flex; 
+    justify-content: center; 
+    background-color: white; 
+    position: absolute; 
+    top: 2rem; 
+    z-index: 1000;
+}

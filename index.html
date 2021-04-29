@@ -23,10 +23,10 @@
 <body>
     <!-- MENU DE NAVEGACIÓN DE LA PAGINA -->
     <nav class="navbar is-black p-2" role="navigation" aria-label="main navigation">
-        <section class="navbar-brand">
-          <article class="navbar-item" href="https://bulma.io">
+        <div class="navbar-brand">
+          <article class="navbar-item" href="https://bulma.io" onclick="controlVisibility('home')">
             <i class="fas fa-piggy-bank"> </i>
-             <span class="principal-title">  AHORRADAS</span>
+            <span class="principal-title ml-2">AHORRADAS</span>
           </article>
       
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -34,30 +34,31 @@
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
           </a>
-        </section>
+        </div>
       
-        <section id="navbarBasicExample" class="navbar-menu">
+        <div id="navbarBasicExample" class="navbar-menu">
           <article class="navbar-end">
-            <div class="navbar-item botoncito" id="balanceBtn"> <i class="fas fa-chart-line"> </i>Balance</div>
-            <div class="navbar-item botoncito" id="categoriasBtn"> <i class="fas fa-chart-pie"></i>Categorias</div>
-            <div class="navbar-item botoncito" id="reportesBtn"><i class="fas fa-file-invoice-dollar"></i>Reportes</div>
+            <div class="navbar-item botoncito" id="balanceBtn"> <i class="fas fa-chart-line mr-2" onclick="controlVisibility('home')"> </i>Balance</div>
+            <div class="navbar-item botoncito" id="categoriasBtn" onclick="controlVisibility('categories')"> <i class="fas fa-chart-pie mr-2"></i>Categorias</div>
+            <div class="navbar-item botoncito" id="reportesBtn" onclick="controlVisibility('reports')"><i class="fas fa-file-invoice-dollar mr-2"></i>Reportes</div>
         </article>
-        </section>
+      </div>
       </nav>
 
       <!-- SECCION DE BALANCE -->
 
      <main class="container">
-        <section class="tile is-ancestor" >
+        <section id="home" >
+          <div class="tile is-ancestor">
             <article class="tile is-4 is-vertical is-parent mt-5">
               <div class="tile is-child box">
                 <p class="title">BALANCE</p>
-                <span>Ganancias</span><span class="has-text-success">+$800</span>
+                <span>Ganancias</span><span class="has-text-success">+$0</span>
                 <br>
-                <span>Gastos</span><span class=" has-text-danger "> -$300</span>
+                <span>Gastos</span><span class=" has-text-danger "> -$0</span>
                 <br>
                 <hr>
-                <span>TOTAL</span><span>$500</span>
+                <span>TOTAL</span><span>$0</span>
               </div>
               <article class="tile is-child box">
                 <p class="title">Filtros</p>
@@ -107,68 +108,153 @@
               </article>
             </article>
             <article class="tile is-parent  mt-5">
-              <div class="tile is-child box">
-                <p class="title">Operaciones</p>  <button class="button is-rounded" id="newOpBtn">+Nueva Operación</button>
-                <img src="./Assets/Images/undraw_Investing_re_bov7.svg"  alt="">
+                <div class="tile is-child box">
+                  <div class="columns is-justify-content-space-between mt-3 mx-3">
+                  <p class="title">
+                    Operaciones
+                  </p>
+                  <button class="button is-rounded" onclick="controlVisibility('new-operation')">+Nueva Operación</button>
+                </div>
+                <div class="columns mt-3 has-background-danger-dark has-text-black-bis">
+                  <span class="column is-3">Descripción</span>
+                  <span class="column is-2">Categoría</span>
+                  <span class="column is-3">Fecha</span>
+                  <span class="column is-2">Monto</span>
+                  <span class="column is-2">Acciones</span>
+                </div>
+                <div id="pintar">
+                    
+                </div>
+                <!-- <img src="./Assets/Images/undraw_Investing_re_bov7.svg"  alt=""> -->
               </div>
             </article>
-          </section>
+          </div>
+        </section>
         <!-- NUEVA OPERACION      -->
-        <section id="newOperation" class="container has-background-white mt-6 p-2" style="width: 70%; display: none;">
-            <p class="title has-text-black mt-2"> Nueva operación.</p>
-            <div class="field">
-                <label class="label">Descripcion</label>
-                <div class="control">
-                  <input class="input" type="text" placeholder="">
+          <section id="new-operation" class="is-hidden is-visible">
+              <div class="container has-background-white mt-6 p-2" style="width: 60%;">
+                  <p class="title has-text-black mt-2"> Nueva operación.</p>
+                  <div class="field">
+                      <label class="label">Descripcion</label>
+                      <div class="control">
+                      <input id="descripcion" class="input" type="text" placeholder="" data-owner="new-operation" name="description">
+                      </div>
+                  </div>
+                  <label class="label">Monto</label>
+                  <input id="monto" type="number" style="width: 100%; height: 2rem;" data-owner="new-operation"
+                  name="monto" >
+                  <br>
+                  <br>
+                  <label class="label">Tipo</label>
+                  <div class="select is-black" style="width: 100%; height: 2rem;">
+                      <select id="tipo" style="width: 100%; height: 2.3rem;" data-owner="new-operation" name="type">
+                      <option>Gasto</option>
+                      <option>Ganancia</option>
+                      </select>
+                  </div>
+                  <br>
+                  <br>
+                  <label class="label" >Categorias</label>
+                  <div class="select is-black" style="width: 100%; height: 3rem;">
+                      <select id="categoria" style="width: 100%; height: 3rem;" data-owner="new-operation"
+                      name="category">
+                      <option>Todas</option>
+                      <option>Comidas</option>
+                      <option>Servicios</option>
+                      <option>Salidas</option>
+                      <option>Transporte</option>
+                      <option>Educación</option>
+                      <option>Trabajo</option>
+                      </select>
+                  </div>
+                  <br>
+                  <br>
+                  <label class="label"> Fecha</label>
+                  <input id="fecha" type="date" style="width: 100%; height: 3rem;" data-owner="new-operation"
+                  name="date">
+                  <br>
+                  <br>
+                  <br>
+                  <button class="button  is-rounded " id="cancelOperationBtn">Cancelar</button>
+                  <button class="button is-success is-rounded " onclick="addOperationBtn()">Agregar</button>
+      
+              </div>
+          </section>
+          <!-- EDITAR OPERACIÓN      -->
+          <section id="edit-operation" class="is-hidden is-visible">
+            <div class="container has-background-white mt-6 p-2" style="width: 60%;">
+                <p class="title has-text-black mt-2"> Editar operación.</p>
+                <div class="field">
+                    <label class="label">Descripcion</label>
+                    <div class="control">
+                    <input id="descripcionEdit" class="input" type="text" placeholder="" data-owner="edit-operation"
+                    name="description">
+                    </div>
                 </div>
-              </div>
-              <label class="label">Monto</label>
-              <input type="number" style="width: 100%; height: 2rem;" >
-              <br>
-              <br>
-              <label class="label">Tipo</label>
-              <div class="select is-black" style="width: 100%; height: 2rem;">
-                <select style="width: 100%; height: 2.3rem;" >
-                  <option>Gasto</option>
-                  <option>Ganancia</option>
-                </select>
-              </div>
-              <br>
-              <br>
-              <label class="label" >Categorias</label>
-              <div class="select is-black" style="width: 100%; height: 3rem;">
-                <select style="width: 100%; height: 3rem;">
-                  <option>Todas</option>
-                  <option>Comidas</option>
-                  <option>Servicios</option>
-                  <option>Salidas</option>
-                  <option>Transporte</option>
-                  <option>Educación</option>
-                </select>
+                <label class="label">Monto</label>
+                <input id="montoEdit" type="number" style="width: 100%; height: 2rem;" data-owner="edit-operation"
+                name="monto" >
+                <br>
+                <br>
+                <label class="label">Tipo</label>
+                <div class="select is-black" style="width: 100%; height: 2rem;">
+                    <select id="tipoEdit" style="width: 100%; height: 2.3rem;" data-owner="edit-operation" name="type">
+                    <option>Gasto</option>
+                    <option>Ganancia</option>
+                    </select>
+                </div>
+                <br>
+                <br>
+                <label class="label" >Categorias</label>
+                <div class="select is-black" style="width: 100%; height: 3rem;">
+                    <select id="categoriaEdit" style="width: 100%; height: 3rem;" data-owner="edit-operation"
+                    name="category">
+                    <option>Todas</option>
+                    <option>Comidas</option>
+                    <option>Servicios</option>
+                    <option>Salidas</option>
+                    <option>Transporte</option>
+                    <option>Educación</option>
+                    <option>Trabajo</option>
+                    </select>
+                </div>
+                <br>
+                <br>
+                <label class="label"> Fecha</label>
+                <input id="fechaEdit" type="date" style="width: 100%; height: 3rem;" data-owner="edit-operation"
+                name="date">
+                <br>
+                <br>
+                <br>
+                <button class="button  is-rounded " id="cancelEditBtn">Cancelar</button>
+                <button class="button is-success is-rounded " id="editOperationBtn" onclick="confirmEditOperation()">Editar</button>
+    
             </div>
-            <br>
-            <br>
-            <label class="label"> Fecha</label>
-            <input type="date" style="width: 100%; height: 3rem;">
-            <br>
-            <br>
-            <br>
-            <button class="button  is-rounded " id="cancelOperationBtn">Cancelar</button>
-            <button class="button is-success is-rounded " id="addOperationBtn">Agregar</button>
-
         </section>
 
         <!-- SECCION CATEGORIAS -->
-        <section id="categorias" class="container has-background-white mt-6 p-2" style="width: 70%;height: 60vh; display: none;">
-            <p class="title has-text-black mt-2"> categorias.</p>
-            <label class="label">Nombre</label>
-                <div class="control">
-                  <input class="input" type="text" placeholder="">
-                </div>
+        <section id="categories" class="container has-background-white mt-6 p-2" class="is-hidden is-visible">
+          <div class="box">
+            <h1 class="title has-text-black mt-2">Categorias</h1>
+            <div class="field is-grouped mb-5">
+              <p class="control is-expanded">
+                <input
+                  id="category-input-new"
+                  class="input"
+                  type="text"
+                  placeholder="Find a repository"
+                />
+              </p>
+              <p class="control">
+                <a class="button is-info" onclick="addCategories()">Agregar</a>
+              </p>
+            </div>
+            <div id="categories-list"></div>
+          </div>
         </section>
 
         <!-- SECCION REPORTES -->
-        <section id="reports" class="container has-background-white mt-6 p-2" style="width: 70%; display: none;">
+        <section id="reports" class="container has-background-white mt-6 p-2" class="is-hidden is-visible">
             <p class="title"> Reportes</p>
             <img src="./Assets/Images/undraw_Investing_re_bov7.svg" style="height: 40vh;" class="center" alt="">
             <p> Operaciones insuficientes</p>
@@ -176,6 +262,7 @@
         </section>
         </main>
 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js"></script>
     <script src="./app.js"></script>
 </body>
 </html>
