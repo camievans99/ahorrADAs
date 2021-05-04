@@ -1,22 +1,70 @@
-
 /* Fuente utilizada en el proyecto */
-
-@font-face {
-    font-family:cosmith-sans;
-    src: url(../Assets/fonts/cosmith.sans.ttf);
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap');
 /*Paleta de colores*/
 
-:root{
---black:#151515;
---silver:#7e8287;
---gray:#9da39a;
---oldrose:#ffcef6;
---raspberry:#ec006a;
+:root {
+    --black: #151515;
+    --silver: #7e8287;
+    --gray: #9da39a;
+    --oldrose: #ffcef6;
+    --raspberry: #ec006a;
 }
 
-body{
-    background-color: var(--silver);
-    font-family: cosmith-sans;
+html {
+    background-color: #bdc3c7;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2c3e50, #bdc3c7);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+body {
+    background-color: #bdc3c7;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2c3e50, #bdc3c7);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--black);
+    font-weight: bold;
+}
+
+nav {
+    background: #536976;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #292E49, #536976);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #292E49, #536976);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.is-hidden {
+    display: none;
+}
+
+.is-visible {
+    /*width: 100%; */
+    display: flex;
+    /*justify-content: center; 
+    background-color: white; 
+    position: absolute; 
+    top: 2rem; 
+    z-index: 1000;*/
+}
+
+.new-operation {
+    width: 70%;
+    margin: auto;
+    margin-top: 4%;
+}
+
+.button {
+    margin-top: 2%;
+}
+
+span {
+    color: var(--black);
+    font-size: larger;
 }
