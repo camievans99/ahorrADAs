@@ -5,6 +5,7 @@
 const newOpBtn = document.getElementById('newOpBtn');
 const newOperation = document.getElementById('new-operation');
 const cancelOperationBtn = document.getElementById('cancelOperationBtn')
+
 const sectionsList = document.getElementsByTagName("section");
 let currentOperationIdToUpdate = '';
 let currentCategoriaToUpdate = '';
@@ -476,3 +477,4 @@ function editarCategoria() {
 
 
 /******************************************************************************* */
+
