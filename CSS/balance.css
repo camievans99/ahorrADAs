@@ -1,0 +1,37 @@
+.new-operation{
+    margin-top: 2%;
+}
+
+.title{
+    margin-top: 18.5px;
+    justify-content: space-between;
+}
+
+#operation{
+    display: flex;
+}
+
+.is-child{
+    background-color: #DEDEDE;
+}
+
+.is-rounded{
+    background-color: #CCCCCC;
+}
+
+.table{
+    width: 100%;
+}
+
+.balance{
+    margin-top: 24px;
+}
+
+#new-operation{
+    margin-left: 15%;
+}
+
+#principalBox, #filtrosSeccion{
+    background-color: #DEDEDE;
+}
+
